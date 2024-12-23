@@ -30,8 +30,8 @@ Alice encounters an issue with the Acme User Application and wants to delegate a
 - **Resource Server**: Acme Backend APIs used by the Acme User Application and Acme Admin Application (`https://rs.acme.com`) which is protected by Acme OAuth & OIDC Provider.
 
 ### Solution
-- When Alice using Acme User Application in regular way then Acme User Application can consume Acme Backend APIs using regular `access_token` and Authorization Server would be able to authorize the `access_token` in regular OAuth way and `access_token` will have information about only Alice.
-- Similarly, when Bob using Acme Admin Application in regular way then Acme Admin Application can consume Acme Backend APIs using regular `access_token` and Authorization Server would be able to authorize the `access_token` in regular OAuth way and `access_token` will have information about only Bob.
+- When Alice is using Acme User Application in regular way then Acme User Application can consume Acme Backend APIs using regular `access_token` and Authorization Server would be able to authorize the `access_token` in regular OAuth way and `access_token` will have information about only Alice.
+- Similarly, when Bob is using Acme Admin Application in regular way then Acme Admin Application can consume Acme Backend APIs using regular `access_token` and Authorization Server would be able to authorize the `access_token` in regular OAuth way and `access_token` will have information about only Bob.
 - For Administrator Bob to reproduce the issue Alice is facing using Acme Admin Application, and for Acme Admin Application consume Acme Backend APIs as Alice delegated to Bob, Acme Admin Application would need a special access_token, say `delegate_access_token` (name `delegate_access_token` is not in spec) which has information about Alice, Bob and also information about Alice delegating to Bob.
 
 Let's examine how Alice authorizes Bob and how the Acme Admin Application obtains a special `access_token` on behalf of Bob with Alice-to-Bob delegation.
@@ -207,5 +207,8 @@ Let's examine how Alice authorizes Bob and how the Acme Admin Application obtain
     }
   }
   ```
+
+- Acme Admin Application will use the `delegate_access_token` to consume Acme Backend APIs to reproduce issue as Bob on behalf of Alice.
+
   **Note**: The Acme User Application and Acme Admin Application must share a database so that the Acme Admin Application can retrieve the `subject_token` to perform the `token_exchange` flow with both the `subject_token` and `actor_token`.
 
