@@ -1,22 +1,21 @@
 ### Questions (may seem stupid):
 - Can an attacker steal the signed challenge (I understand there is TLS) and log in?
-- Will the passkey recovery workflow be defined in the upcoming specification, or is it up to the RP's discretion? If it is up to the RP, not all RPs may implement it securely, which could compromise FIDO2's effectiveness.
-- Can an attacker with access to the device and RP replace the private and public keys and gain access?
+- Will the passkey recovery workflow be defined in the upcoming specification, or is it up to the RP's discretion? If it is up to the RP, not all RPs may implement it securely, wouldn't it compromise FIDO2's effectiveness?
 - Does the mobile application also use the JS-WebAuthn API to interact, or are there platform-specific WebAuthn APIs?
 - Is CTAP2 an extension of CTAP1?
+- Can an attacker with access to the device and RP replace the private and public keys and gain access in theory? 
 - Is my below understanding of specification correct?
 
 #### Native Device Security
-- Unlocking a device using biometric scans like fingerprints or facial recognition is managed by the device's native security system.
-- It is not part of the FIDO specifications.
+- Unlocking a device using biometric scans like fingerprints or facial recognition is managed by the device's native security system and tt is **not part of the FIDO specifications**.
 
 #### Access Restrictions
 - Neither the browser, web application, iOS SFSafariViewController, Android CustomTabs, nor the mobile application has access to private keys or biometric data.
 - Only the device's operating system (OS) has access to biometric data.
 - Only the device's operating system (OS) or the security key's firmware has access to the private key.
 - The private key and biometric data never leave the device.
-- The web and mobile applications only receive success/failure results of biometric authentication via APIs.
-- The web and mobile applications only receive the signed challenge via APIs.
+- The WebAuthn APIs for web and mobile applications do not sign the challenge directly; instead, they interact with the device OS to have the challenge signed.
+- The WebAuthn APIs for web and mobile applications interact with the device OS and only receive success/failure results of biometric authentication.
 
 #### FIDO1 UAF (Universal Authentication Framework) - 2014
 - Supports passwordless login for mobile applications that implement biometric authentication (e.g., fingerprint or facial recognition).
