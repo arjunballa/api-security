@@ -2,8 +2,9 @@
 - Can an attacker steal the signed challenge (I understand there is TLS) and log in?
 - Will the passkey recovery workflow be defined in the upcoming specification, or is it up to the RP's discretion? If it is up to the RP, not all RPs may implement it securely, wouldn't it compromise FIDO2's effectiveness?
 - Does the mobile application also use the JS-WebAuthn API to interact, or are there platform-specific WebAuthn APIs?
-- Is CTAP2 an extension of CTAP1?
+- Is CTAP2 used to communicate with the macOS Local Keychain Access and iCloud Keychain (I know it is used to communicate with roaming and cross device authenticator)?
 - Can an attacker with access to the device and RP replace the private and public keys and gain access in theory? 
+- Is CTAP2 an extension of CTAP1?
 - Is my below understanding of specification correct?
 
 #### Native Device Security
@@ -36,7 +37,7 @@
 
 ### Authenticators
 #### Platform Authenticators:
-  - macOS Keychain or iCloud Keychain.
+  - macOS Local Keychain Access or iCloud Keychain.
   - Android Google Password Manager.
   - Windows?
 
