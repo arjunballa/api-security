@@ -1,9 +1,11 @@
 ### Questions (may seem stupid):
 - Can an attacker steal the signed challenge (I understand there is TLS) and log in?
+- How safe is it to sync private keys to the cloud? Isn't it violating its own criticism of storing passwords in a database?
 - Will the passkey recovery workflow be defined in the upcoming specification, or is it up to the RP's discretion? If it is up to the RP, not all RPs may implement it securely, wouldn't it compromise FIDO2's effectiveness?
 - Does the mobile application also use the JS-WebAuthn API to interact, or are there platform-specific WebAuthn APIs?
 - Is CTAP2 used to communicate with the macOS Local Keychain Access and iCloud Keychain (I know it is used to communicate with roaming and cross device authenticator)?
-- Can an attacker with access to the device and RP replace the private and public keys and gain access in theory? 
+- Can an attacker with access to the device and RP replace the private and public keys and gain access in theory?
+- May I request to comment on talk [We Want Less Passwords, Not Passwordless by Chand Spensky Founder of Allthenticate](https://youtu.be/XhBauX9VyiQ)
 
 
 **Is my below understanding of specification correct?**
