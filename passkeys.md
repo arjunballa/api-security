@@ -1,6 +1,8 @@
 ### Questions (may seem stupid):
 - Can an attacker steal the signed challenge (I understand there is TLS) and log in?
 - How safe is it to sync private keys to the cloud? Isn't it violating its own criticism of storing passwords in a database?
+- How is it secure to use passkey login while still retaining password login? GitHub allows adding passkeys as MFA, which enhances security, but many platforms don’t.  
+- What is the best path to completely transition to passkeys from password login? Is it possible to do so without a robust approach to passkey recovery mechanisms?
 - Will the passkey recovery workflow be defined in the upcoming specification, or is it up to the RP's discretion? If it is up to the RP, not all RPs may implement it securely, wouldn't it compromise FIDO2's effectiveness?
 - Does the mobile application also use the JS-WebAuthn API to interact, or are there platform-specific WebAuthn APIs?
 - Is CTAP2 used to communicate with the macOS Local Keychain Access and iCloud Keychain (I know it is used to communicate with roaming and cross device authenticator)?
