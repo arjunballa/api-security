@@ -6,7 +6,7 @@
 - Can an attacker with access to the device and RP replace the private and public keys and gain access in theory? 
 
 
-Is my below understanding of specification correct?
+**Is my below understanding of specification correct?**
 
 #### Native Device Security
 - Unlocking a device using biometric scans like fingerprints or facial recognition is managed by the device's native security system and tt is **not part of the FIDO specifications**.
@@ -27,6 +27,7 @@ Is my below understanding of specification correct?
 - The private key **can not be** stored on the **external security keys**.
 - The private key is **not synced** to the **cloud**.
 - Utilizes asymmetric cryptography.
+
 #### FIDO1 U2F (Universal 2nd Factor) Protocol
 - Released in 2014 right after FIDO1 UAF.
 - Designed for **2FA (Two-Factor Authentication)** using external **security keys only** like YubiKeys and Google Titan security keys as the second factor, in addition to a password.
@@ -56,9 +57,9 @@ Is my below understanding of specification correct?
 #### FIDO2 (W3C WebAuthn and CTAP2)
 - Released in 2022.
 - Supports passwordless login for both mobile and web applications using biometrics (fingerprint or face scans) or external security keys.
-- The private key can be stored on external security keys.
-- The private key can be stored on the device.
-- The private key is synced to the cloud.
+- The private key **can be** stored on external **security keys**.
+- The private key **can be** stored on the **device**.
+- The private key **is synced** to the **cloud**.
 - Supports both mobile and web applications.
 
   #### WebAuthn:
