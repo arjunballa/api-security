@@ -4,8 +4,9 @@
 - Does the mobile application also use the JS-WebAuthn API to interact, or are there platform-specific WebAuthn APIs?
 - Is CTAP2 used to communicate with the macOS Local Keychain Access and iCloud Keychain (I know it is used to communicate with roaming and cross device authenticator)?
 - Can an attacker with access to the device and RP replace the private and public keys and gain access in theory? 
-- Is CTAP2 an extension of CTAP1?
-- Is my below understanding of specification correct?
+
+
+Is my below understanding of specification correct?
 
 #### Native Device Security
 - Unlocking a device using biometric scans like fingerprints or facial recognition is managed by the device's native security system and tt is **not part of the FIDO specifications**.
@@ -15,25 +16,32 @@
 - Only the device's operating system (OS) has access to biometric data.
 - Only the device's operating system (OS) or the security key's firmware has access to the private key.
 - The private key and biometric data never leave the device.
-- The WebAuthn APIs for web and mobile applications do not sign the challenge directly; instead, they interact with the device OS to have the challenge signed.
+- The WebAuthn APIs for web and mobile applications do not sign the challenge directly as they directly don't have access to private key; instead, they interact with the device OS to have the challenge signed.
 - The WebAuthn APIs for web and mobile applications interact with the device OS and only receive success/failure results of biometric authentication.
 
-#### FIDO1 UAF (Universal Authentication Framework) - 2014
-- Supports passwordless login for mobile applications that implement biometric authentication (e.g., fingerprint or facial recognition).
-- Web applications are not supported.
-- The private key can only be stored on the device.
-- The private key is not synced to the cloud.
-- Does not support storing private keys on external security keys.
+#### FIDO1 UAF (Universal Authentication Framework)
+- Released in 2014
+- Supports **passwordless** login for **mobile applications only** that implement biometric authentication (e.g., fingerprint or facial recognition).
+- Web applications are **not supported**.
+- The private key **can only be** stored on the **device**.
+- The private key **can not be** stored on the **external security keys**.
+- The private key is **not synced** to the **cloud**.
 - Utilizes asymmetric cryptography.
 
-#### FIDO1 U2F (Universal 2nd Factor) Protocol - 2014 (right after FIDO1 UAF)
-- Designed for 2FA (Two-Factor Authentication) using external security keys like YubiKeys and Google Titan security keys as the second factor, in addition to a password.
+#### FIDO1 U2F (Universal 2nd Factor) Protocol
+- Released in 2014 right after FIDO1 UAF.
+- Designed for **2FA (Two-Factor Authentication)** using external **security keys only** like YubiKeys and Google Titan security keys as the second factor, in addition to a password.
 - Supports mobile and web applications.
-- The private key can only be stored on external security keys.
-- The private key cannot be stored on the device.
-- The private key is not synced to the cloud.
-- Was renamed FIDO2 CTAP1 with the release of FIDO2.
+- The private key **can only be** stored on **external security keys**.
+- The private key **cannot be** stored on the **device**.
+- The private key is **not synced** to the **cloud**.
 - Utilizes asymmetric cryptography.
+
+- Is UAF part of this spec? If yes, what role does it play?
+- Is FIDO1 U2F is renamed FIDO2 CTAP1 with the release of FIDO2?.
+
+  #### U2F JS API
+  -  Browser-based JavaScript APIs enabling communication with the operating system to interact with authenticators.
 
 ### Authenticators
 #### Platform Authenticators:
@@ -47,7 +55,8 @@
 ##### Cross-Device Authenticators:
   - Mobile devices acting as roaming authenticators (using Bluetooth or NFC for communication).
 
-#### FIDO2 (W3C WebAuthn and CTAP2) - 2022
+#### FIDO2 (W3C WebAuthn and CTAP2)
+- Released in 2022.
 - Supports passwordless login for both mobile and web applications using biometrics (fingerprint or face scans) or external security keys.
 - The private key can be stored on external security keys.
 - The private key can be stored on the device.
