@@ -27,7 +27,6 @@ Is my below understanding of specification correct?
 - The private key **can not be** stored on the **external security keys**.
 - The private key is **not synced** to the **cloud**.
 - Utilizes asymmetric cryptography.
-
 #### FIDO1 U2F (Universal 2nd Factor) Protocol
 - Released in 2014 right after FIDO1 UAF.
 - Designed for **2FA (Two-Factor Authentication)** using external **security keys only** like YubiKeys and Google Titan security keys as the second factor, in addition to a password.
@@ -36,7 +35,6 @@ Is my below understanding of specification correct?
 - The private key **cannot be** stored on the **device**.
 - The private key is **not synced** to the **cloud**.
 - Utilizes asymmetric cryptography.
-
 - Is UAF part of this spec? If yes, what role does it play?
 - Is FIDO1 U2F is renamed FIDO2 CTAP1 with the release of FIDO2?.
 
