@@ -1,27 +1,25 @@
 ### Questions (may seem stupid):
-- Can an attacker steal the signed challenge (I understand there is TLS) and log in?
+- Can an attacker steal the signed challenge (I understand there is TLS) and log-in in theory?
 - How safe is it to sync private keys to the cloud? Isn't it violating its own criticism of storing passwords in a database?
 - How is it secure to use passkey login while still retaining password login? GitHub allows adding passkeys as MFA, which enhances security, but many platforms don’t.  
-- What is the best path to completely transition to passkeys from password login? Is it possible to do so without a robust approach to passkey recovery mechanisms?
+- What is the best path to completely migrate to passkeys from password login? Is it possible to migrate to passskeys without a robust approach to passkey recovery mechanisms?
 - Will the passkey recovery workflow be defined in the upcoming specification, or is it up to the RP's discretion? If it is up to the RP, not all RPs may implement it securely, wouldn't it compromise FIDO2's effectiveness?
 - Does the mobile application also use the JS-WebAuthn API to interact, or are there platform-specific WebAuthn APIs?
 - Is CTAP2 used to communicate with the macOS Local Keychain Access and iCloud Keychain (I know it is used to communicate with roaming and cross device authenticator)?
 - Can an attacker with access to the device and RP replace the private and public keys and gain access in theory?
 - May I request to comment on talk [We Want Less Passwords, Not Passwordless by Chand Spensky Founder of Allthenticate](https://youtu.be/XhBauX9VyiQ)
-
-
-**Is my below understanding of specification correct?**
+- **Is my below understanding of history, jagron and specification correct?**
 
 #### Native Device Security
 - Unlocking a device using biometric scans like fingerprints or facial recognition is managed by the device's native security system and tt is **not part of the FIDO specifications**.
 
 #### Access Restrictions
-- Neither the browser, web application, iOS SFSafariViewController, Android CustomTabs, nor the mobile application has access to private keys or biometric data.
-- Only the device's operating system (OS) has access to biometric data.
-- Only the device's operating system (OS) or the security key's firmware has access to the private key.
-- The private key and biometric data never leave the device.
-- The WebAuthn APIs for web and mobile applications do not sign the challenge directly as they directly don't have access to private key; instead, they interact with the device OS to have the challenge signed.
-- The WebAuthn APIs for web and mobile applications interact with the device OS and only receive success/failure results of biometric authentication.
+- Neither the **browser, web application, iOS SFSafariViewController, Android CustomTabs, nor the mobile application** has access to **private keys or biometric data**.
+- Only the **device's operating system (OS)** has access to **biometric data**.
+- Only the **device's operating system (OS)** or the security key's firmware has access to the **private key**.
+- The **private key and biometric** data **never leave** the device.
+- The **WebAuthn APIs** for web and mobile applications **do not sign** the challenge **directly** as they directly don't have access to private key; instead, they interact with the **device OS** to have the challenge **signed**.
+- The **WebAuthn APIs** for web and mobile applications interact with the device OS and **only receive success/failure** results of **biometric authentication**.
 
 #### FIDO1 UAF (Universal Authentication Framework)
 - Released in 2014
