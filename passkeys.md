@@ -8,7 +8,8 @@
 - Neither the **browser, web application, iOS SFSafariViewController, Android CustomTabs, nor the mobile application** has access to **private keys or biometric data**.
 - Only the **device's operating system (OS)** has access to **biometric data**.
 - Only the **device's operating system (OS)** or the **security key's (YubiKeys and Google Titan security keys) firmware** has access to the **private key**.
-- The **private key and biometric** data **never leave** the device.
+- The **biometric** data **never leave** the device.
+- The **private key** data **never leave** the device. However, in private key cloud sync, technically the private key does leave the device in encrypted form.
 - The **WebAuthn APIs** for web and mobile applications **do not sign** the challenge **directly** as they directly don't have access to private key; instead, they interact with the **device OS via CTAP APIs** to have the challenge **signed**.
 - The **WebAuthn APIs** for web and mobile applications interact with the device OS and **only receive success/failure** results of **biometric authentication**.
 
@@ -17,8 +18,8 @@
 - Supports **passwordless** login for **mobile applications only** that implement biometric authentication (e.g., fingerprint or facial recognition or PIN or pattern)
 - Web applications are **not supported**.
 - The private key **can only be** stored on the **device**.
-- The private key **can not be** stored on the **external security keys**.
-- The private key is **not synced** to the **cloud**.
+- The private key **can not be** stored on the **external security keys** as that usecase was never part of this specification.
+- The private key is **not synced** to the **cloud** as that usecase was never part of this specification.
 - Utilizes asymmetric cryptography.
 
 #### FIDO1 U2F (Universal 2nd Factor) Protocol
@@ -53,7 +54,7 @@
 - Supports passwordless login for both mobile and web applications using biometrics (fingerprint or face scans) or external security keys.
 - The private key **can be** stored on external **security keys**.
 - The private key **can be** stored on the **device**.
-- The private key **is synced** to the **cloud**.
+- The private key **is synced** to the **cloud** as this speficification does not mandate cloud syncing. This is more device specific implementation.
 - Supports both mobile and web applications.
 
   #### WebAuthn:
