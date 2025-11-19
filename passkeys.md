@@ -11,7 +11,7 @@
 - The **biometric** data **never leave** the device.
 - The **private key** data **never leave** the device. However, in private key cloud sync, technically the private key does leave the device in encrypted form.
 - The **WebAuthn APIs** for web and mobile applications **do not sign** the challenge **directly** as they directly don't have access to private key; instead, they interact with the **device OS via CTAP APIs** to have the challenge **signed**.
-- The **WebAuthn APIs** for web and mobile applications interact with the device OS and **only receive success/failure** results of **biometric authentication**.
+- The **WebAuthn APIs** for web and mobile applications interact with the device OS and **only receive success/failure of biometric authentication**.
 
 #### FIDO1 UAF (Universal Authentication Framework)
 - Released in 2014
@@ -39,7 +39,7 @@
 
 ### Authenticators
 ##### Platform Authenticators:
-  - macOS Local Keychain Access or iCloud Keychain.
+  - Secure Enclave is the Apple Authenticator which uses macOS Local Keychain Access or iCloud Keychain to store credentials.
   - Android Google Password Manager.
   - Windows Hello
 
