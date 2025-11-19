@@ -2,6 +2,7 @@
 
 #### Native Device Security
 - Unlocking a device using biometric scans like fingerprints or facial recognition is managed by the device's native security system and it is **not part of the any FIDO specifications**.
+- Syncing *keys* to clould is **not part of the any FIDO specifications**. It is product specific implementation by vendors.
 
 #### Access Restrictions
 - Neither the **browser, web application, iOS SFSafariViewController, Android CustomTabs, nor the mobile application** has access to **private keys or biometric data**.
