@@ -36,7 +36,7 @@
   -  Browser-based JavaScript APIs enabling communication with the operating system to interact with authenticators.
 
 ### Authenticators
-#### Platform Authenticators:
+##### Platform Authenticators:
   - macOS Local Keychain Access or iCloud Keychain.
   - Android Google Password Manager.
   - Windows Hello
