@@ -1,12 +1,12 @@
 **Is my below understanding of history, jagron and specification correct?**
 
 #### Native Device Security
-- Unlocking a device using biometric scans like fingerprints or facial recognition is managed by the device's native security system and it is **not part of the FIDO specifications**.
+- Unlocking a device using biometric scans like fingerprints or facial recognition is managed by the device's native security system and it is **not part of the any FIDO specifications**.
 
 #### Access Restrictions
 - Neither the **browser, web application, iOS SFSafariViewController, Android CustomTabs, nor the mobile application** has access to **private keys or biometric data**.
 - Only the **device's operating system (OS)** has access to **biometric data**.
-- Only the **device's operating system (OS)** or the **security key's firmware** has access to the **private key**.
+- Only the **device's operating system (OS)** or the **security key's (YubiKeys and Google Titan security keys) firmware** has access to the **private key**.
 - The **private key and biometric** data **never leave** the device.
 - The **WebAuthn APIs** for web and mobile applications **do not sign** the challenge **directly** as they directly don't have access to private key; instead, they interact with the **device OS via CTAP APIs** to have the challenge **signed**.
 - The **WebAuthn APIs** for web and mobile applications interact with the device OS and **only receive success/failure** results of **biometric authentication**.
