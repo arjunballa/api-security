@@ -66,11 +66,19 @@
 
 ### Questions (may seem stupid):
 - If an attacker somehow manages to steal the signed challenge (even though it’s difficult because of TLS), could they still use it to log in, at least in theory?
+  **My answer:** Theorrically possible but extremely difficult.
 - How safe is it to sync private keys to the cloud? Isn't it violating its own criticism of storing passwords in a database?
-- How is it secure to use passkey login while still retaining password login? GitHub allows adding passkeys as MFA, which enhances security, but many platforms don’t.  
+  **My answer:** Decide based on threat model: convenience vs absolute minimization of remote attack surface.
+- How is it secure to use passkey login while still retaining password login? GitHub allows adding passkeys as MFA, which enhances security, but many platforms don’t.
+  **My answer:** Without robust passkey recovery mechanisms it is hard to disable password completely. Better approach is enable passkeys as MFA for password login.
 - What is the best path to completely migrate to passkeys from password login? Is it possible to migrate to passkeys without a robust approach to passkey recovery mechanisms?
+  **My answer:** Password login with passkey configured as MFA is better approach till passkey recovery mechanism is in place.
 - Will the passkey recovery workflow be defined in the upcoming specification, or is it up to the RP's discretion? If it is up to the RP, not all RPs may implement it securely, wouldn't it compromise FIDO2's effectiveness?
+  **My answer:** It is better if FIDO comes up with passkey recovery mechanism specification.
 - Does the mobile application also use the JS-WebAuthn API to interact, or are there platform-specific WebAuthn APIs?
+  **My answer:** Native mobile apps generally use platform SDKs / platform credential APIs (e.g., Android’s credential manager / passkey APIs and iOS AuthenticationServices) rather than the browser JS WebAuthn interface and these platform SDKs are not part of FIDO WebAuthn API.
 - Is CTAP2 used to communicate with the macOS Local Keychain Access and iCloud Keychain (I know it is used to communicate with roaming and cross device authenticator)?
+  **My answer:** No — CTAP2 is the client→authenticator protocol used between the client (browser / OS) and an external or roaming authenticator over USB/NFC/BLE.
 - Can an attacker with access to the device and RP replace the private and public keys and gain access in theory?
+  **My answer:** Yes, in theory but extremely difficult.
 - May I request to comment on talk [We Want Less Passwords, Not Passwordless by Chand Spensky Founder of Allthenticate](https://youtu.be/XhBauX9VyiQ)
