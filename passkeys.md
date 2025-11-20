@@ -81,4 +81,4 @@
   **My answer:** No — CTAP2 is the client→authenticator protocol used between the client (browser / OS) and an external or roaming authenticator over USB/NFC/BLE.
 - Can an attacker with access to the device and RP replace the private and public keys and gain access in theory?
   **My answer:** Yes, in theory but extremely difficult.
-- May I request to comment on talk [We Want Less Passwords, Not Passwordless by Chand Spensky Founder of Allthenticate](https://youtu.be/XhBauX9VyiQ)
+- May I request your comments on the talk titled "[We Want Less Passwords, Not Passwordless](https://youtu.be/XhBauX9VyiQ)" by Chad Spensky, Founder of Allthenticate?
