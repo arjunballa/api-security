@@ -13,7 +13,7 @@
 - The **WebAuthn APIs** for web and mobile applications **do not sign** the challenge **directly** as they directly don't have access to private key; instead, they interact with the **device OS via CTAP APIs** to have the challenge **signed**.
 - The **WebAuthn APIs** for web and mobile applications interact with the device OS and **only receive success/failure of biometric authentication**.
 
-#### FIDO1 UAF (Universal Authentication Framework)
+#### FIDO UAF (Universal Authentication Framework)
 - Released in 2014
 - Supports **passwordless** login for **mobile applications only** that implement biometric authentication (e.g., fingerprint or facial recognition or PIN or pattern)
 - Web applications are **not supported**.
@@ -22,8 +22,8 @@
 - The private key is **not synced** to the **cloud** as that usecase was never part of this specification.
 - Utilizes asymmetric cryptography.
 
-#### FIDO1 U2F (Universal 2nd Factor) Protocol
-- Released in 2014 right after FIDO1 UAF.
+#### FIDO U2F (Universal 2nd Factor) Protocol
+- Released in 2014 right after FIDO UAF.
 - Designed for **2FA (Two-Factor Authentication)** using external **security keys only** like YubiKeys and Google Titan security keys as the second factor, in addition to a password.
 - Supports web applications on both laptops and mobile devices.
 - Does not support mobile applications natively but supports via browser extension.
@@ -31,8 +31,8 @@
 - The private key **cannot be** stored on the **device**.
 - The private key is **not synced** to the **cloud**.
 - Utilizes asymmetric cryptography.
-- UAF is not part of the U2F specification. UAF and U2F are separate specifications under the FIDO1 umbrella. 
-- FIDO1 U2F is renamed FIDO2 CTAP1 with the release of FIDO2.
+- UAF is not part of the U2F specification. UAF and U2F are separate specifications under the FIDO umbrella. 
+- FIDO U2F is renamed FIDO2 CTAP1 with the release of FIDO2.
 
   #### U2F JS API
   -  Browser-based JavaScript APIs enabling communication with the operating system to interact with authenticators.
